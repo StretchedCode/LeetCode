@@ -13,19 +13,16 @@ public class lengthOfLastWorld {
     public static int lengthOfLastWord(String s){
 
         int count = 0;
-        String lastWord = "";
 
         for (int i = s.length(); i > 0; i--){
             
             if (s.substring(i - 1, i).equalsIgnoreCase(" ")){
-
+                continue;
             }
             else{
-                lastWord += s.substring(i - 1, i);
 
                 count++;
 
-                System.out.println(lastWord);
 
                 
                 
