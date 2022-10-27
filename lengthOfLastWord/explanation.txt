@@ -1,0 +1,22 @@
+This question asks that given an input string with only english characters and spaces present within it, return the length of the last word within the string.
+
+The challenges created by this question are as follows:
+
+1. How do I know if the string is a word?
+
+2. How do I know if the word is the final one within the string?
+
+To Answer 1., We can simply parse through the string, ignoring every instance of when the substring of length 1 equates to the " " string. However, when the 
+substring of length 1 does NOT equate to the space string, we consider it as the beginning of a word, and add it to the count variable, which representes the length
+of the word. 
+
+2. We can remove the entire portion of determining whether or not if the word whose length is being counted is the last word by beginning the loop iteration from the end.
+This refers to starting the loop from the last index i = s.length(). With this method, the first instance of non-space characters will represent the last word of the string.
+Additionally, once the substring of length 1 after the previous substring returns a space string, it defines the end of the word and exits the loop. 
+
+Constraints and errors:
+
+1. The main source of errors within this solution would arise from improper use of indexing the string. Particularly attempting to create a substring with negative indices
+would cause a OutOfBounds error to throw. This would occur whenever the difference of i - 2 < 0 and whenever the length of the string would be 1.
+
+    - These are the edge scenarios that needed to be taken into account, with the loop breaking whenever one of these conditions were satisfied. 
