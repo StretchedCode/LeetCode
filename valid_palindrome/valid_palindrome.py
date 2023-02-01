@@ -1,31 +1,23 @@
-from copy import deepcopy
 
-class Stack:
-
-    def __init__(self) -> None:
-        self._values = []
-    
-    def push(value):
-
-        self._values.push(deepcopy(value))
-
-        return
-    
-    def pop():
-
-        value = self._values.pop()
-
-        return value
-
-    def peek():
-
-        value = deepcopy(self._values(len(self._values) - 1))
-
-        return value
-
-    def __iter__(self):
-
-        for value in self._values:
-            yield value
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
         
-        return
+        nonalphanum = '''"!@#$%^&*()_+=-[}{]'?/.,>;:<|`~ '''
+        palinString = ''
+        compString = ''
+        palinStack = []
+
+        s = s.lower()
+
+        for c in s:
+            if c not in nonalphanum:
+                palinStack.append(c)
+                compString += c
+        
+        while len(palinStack) != 0:
+            palinString += palinStack.pop()
+
+        if palinString == compString:
+            return True
+        else:
+            return False
